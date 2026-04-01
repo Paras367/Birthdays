@@ -944,16 +944,16 @@
       </div>
     </div>
 
-    <!-- COUNTDOWN -->
-    <div class="countdown-section">
-      <div class="countdown-title">🎂 Your Birthday Countdown 🎂</div>
-      <div class="countdown-boxes">
-        <div class="cd-box"><div class="cd-num" id="cd-d">00</div><div class="cd-label">Days</div></div>
-        <div class="cd-box"><div class="cd-num" id="cd-h">00</div><div class="cd-label">Hours</div></div>
-        <div class="cd-box"><div class="cd-num" id="cd-m">00</div><div class="cd-label">Mins</div></div>
-        <div class="cd-box"><div class="cd-num" id="cd-s">00</div><div class="cd-label">Secs</div></div>
-      </div>
-    </div>
+<!-- COUNTDOWN HTML -->
+<div class="countdown-section">
+  <div class="countdown-title">🎂 Your Birthday Countdown 🎂</div>
+  <div class="countdown-boxes">
+    <div class="cd-box"><div class="cd-num" id="cd-d">00</div><div class="cd-label">Days</div></div>
+    <div class="cd-box"><div class="cd-num" id="cd-h">00</div><div class="cd-label">Hours</div></div>
+    <div class="cd-box"><div class="cd-num" id="cd-m">00</div><div class="cd-label">Mins</div></div>
+    <div class="cd-box"><div class="cd-num" id="cd-s">00</div><div class="cd-label">Secs</div></div>
+  </div>
+</div>
 
     <!-- MEMORY STRIP -->
     <div class="strip-section" style="padding-bottom:32px;">
@@ -1274,27 +1274,52 @@ function toggleMusic() {
    COUNTDOWN (to next birthday — set below)
 ═══════════════════════════════════════════ */
 function updateCountdown() {
-  // Set Gargi's next birthday here: (Month is 0-indexed: 0=Jan, 11=Dec)
-  const now    = new Date();
-  let bday     = new Date(now.getFullYear(), 5, 15); // ← change month/day
-  if (bday < now) bday.setFullYear(now.getFullYear() + 1);
-  const diff   = bday - now;
-  const days   = Math.floor(diff / 86400000);
-  const hours  = Math.floor((diff % 86400000) / 3600000);
-  const mins   = Math.floor((diff % 3600000) / 60000);
-  const secs   = Math.floor((diff % 60000)   / 1000);
-  document.getElementById('cd-d').textContent = String(days).padStart(2,'0');
-  document.getElementById('cd-h').textContent = String(hours).padStart(2,'0');
-  document.getElementById('cd-m').textContent = String(mins).padStart(2,'0');
-  document.getElementById('cd-s').textContent = String(secs).padStart(2,'0');
-  // pulse seconds
-  const cdS = document.getElementById('cd-s');
-  cdS.style.transform = 'scale(1.1)';
-  setTimeout(() => cdS.style.transform = 'scale(1)', 200);
+  const now = new Date();
+  let bday = new Date(now.getFullYear(), 11, 4);
+  
+  if (bday < now) {
+    bday.setFullYear(now.getFullYear() + 1);
+  }
+  
+  const diff = bday - now;
+  
+  if (diff <= 0) {
+    document.getElementById('cd-d').textContent = '00';
+    document.getElementById('cd-h').textContent = '00';
+    document.getElementById('cd-m').textContent = '00';
+    document.getElementById('cd-s').textContent = '00';
+    return;
+  }
+  
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff % 86400000) / 3600000);
+  const mins = Math.floor((diff % 3600000) / 60000);
+  const secs = Math.floor((diff % 60000) / 1000);
+  
+  const dEl = document.getElementById('cd-d');
+  const hEl = document.getElementById('cd-h');
+  const mEl = document.getElementById('cd-m');
+  const sEl = document.getElementById('cd-s');
+  
+  if (dEl) dEl.textContent = String(days).padStart(2, '0');
+  if (hEl) hEl.textContent = String(hours).padStart(2, '0');
+  if (mEl) mEl.textContent = String(mins).padStart(2, '0');
+  if (sEl) {
+    sEl.textContent = String(secs).padStart(2, '0');
+    sEl.style.transform = 'scale(1.1)';
+    setTimeout(() => { if (sEl) sEl.style.transform = 'scale(1)'; }, 200);
+  }
 }
-updateCountdown();
-setInterval(updateCountdown, 1000);
 
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', function() {
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  });
+} else {
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+}
 /* ═══════════════════════════════════════════
    WISH WALL
 ═══════════════════════════════════════════ */
