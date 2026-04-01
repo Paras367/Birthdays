@@ -955,55 +955,50 @@
       </div>
     </div>
 
-    <!-- MEMORIES STRIP -->
+    <!-- MEMORY STRIP -->
     <div class="strip-section" style="padding-bottom:32px;">
       <div class="section-heading">
-        <h2 style="text-align:center">Memory Lane 🎞️</h2>
-        <p style="text-align:center">Scroll → to relive our moments</p>
+        <h2>Memory Lane</h2>
+        <p>Scroll to relive our moments</p>
       </div>
       <div class="strip-track" id="strip-track">
-        <div class="memory-card" id="mc1">
+        <div class="memory-card">
           <div class="memory-thumb">
-            <div class="mem-placeholder">🌅</div>
-            <img id="mi1" style="display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="">
+            <img src="images/photo1.jpg" onclick="openLightbox(this.src)" style="width:100%;height:100%;object-fit:cover;" alt="Memory 1">
           </div>
-          <div class="memory-caption">Add moment ✨</div>
+          <div class="memory-caption">First Meeting</div>
         </div>
-        <div class="memory-card" id="mc2">
+        <div class="memory-card">
           <div class="memory-thumb">
-            <div class="mem-placeholder">🎉</div>
-            <img id="mi2" style="display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="">
+            <img src="images/photo.jpg" onclick="openLightbox(this.src)" style="width:100%;height:100%;object-fit:cover;" alt="Memory 2">
           </div>
-          <div class="memory-caption">Add moment ✨</div>
+          <div class="memory-caption">Best Day Ever</div>
         </div>
-        <div class="memory-card" id="mc3">
+        <div class="memory-card">
           <div class="memory-thumb">
-            <div class="mem-placeholder">☀️</div>
-            <img id="mi3" style="display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="">
+            <img src="images/photo.jpg" onclick="openLightbox(this.src)" style="width:100%;height:100%;object-fit:cover;" alt="Memory 3">
           </div>
-          <div class="memory-caption">Add moment ✨</div>
+          <div class="memory-caption">Adventure Time</div>
         </div>
-        <div class="memory-card" id="mc4">
+        <div class="memory-card">
           <div class="memory-thumb">
-            <div class="mem-placeholder">🌸</div>
-            <img id="mi4" style="display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="">
+            <img src="images/photo.jpg" onclick="openLightbox(this.src)" style="width:100%;height:100%;object-fit:cover;" alt="Memory 4">
           </div>
-          <div class="memory-caption">Add moment ✨</div>
+          <div class="memory-caption">Laughing Together</div>
         </div>
-        <div class="memory-card" id="mc5">
+        <div class="memory-card">
           <div class="memory-thumb">
-            <div class="mem-placeholder">💫</div>
-            <img id="mi5" style="display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="">
+            <img src="images/photo.jpg" onclick="openLightbox(this.src)" style="width:100%;height:100%;object-fit:cover;" alt="Memory 5">
           </div>
-          <div class="memory-caption">Add moment ✨</div>
+          <div class="memory-caption">Special Moments</div>
         </div>
-        <!-- add more strip uploads -->
-        <div class="memory-card" style="border:2px dashed rgba(255,107,181,0.4);background:rgba(255,107,181,0.04);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;" onclick="document.getElementById('strip-upload').click()">
-          <div style="font-size:32px;margin-bottom:8px;">➕</div>
-          <div style="font-size:12px;color:#ccc;font-weight:700;text-align:center;">Add More<br>Memories</div>
+        <div class="memory-card">
+          <div class="memory-thumb">
+            <img src="images/photo.jpg" onclick="openLightbox(this.src)" style="width:100%;height:100%;object-fit:cover;" alt="Memory 6">
+          </div>
+          <div class="memory-caption">Forever Friends</div>
         </div>
       </div>
-      <input type="file" id="strip-upload" accept="image/*" multiple style="display:none">
     </div>
 
     <!-- WISH WALL -->
